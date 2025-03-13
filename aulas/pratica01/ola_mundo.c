@@ -1,6 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    printf("Bem-vindo à disciplina de APC I!");
+int a, b, soma;
+
+    printf("%8i %i  \n", 1, 1);
+    printf("%7i %i %i \n", 1, 2, 1);
+    printf("%5i %i %i %i %i \n", 1, 2, 3, 2 ,1);
+    printf("%3i %i %i %i %i %i %i \n", 1 ,2, 3, 5, 3, 2, 1);
+    printf("%i %i %i %i %i %i %i %i %i\n \n", 1, 2, 3 ,5, 8, 5, 3, 2, 1);
+   
+
+    printf("------------------------------------- \n \n");
+   
+    printf("%5s %5s %5s %10s \n", "Matricula", "A1", "A2", "Media");
+    printf("%5s %7.1f %5.1f %7.1f \n","20210010", 8.5, 5.0, 6.4);
+    printf("%5s %7.1f %5.1f %7.1f \n","20215053", 4.7, 10.0, 7.9);
+    printf("%5s %7.1f %5.1f %7.1f \n","20220027", 5.6, 8.3, 7.2);
+    printf("%5s %7.1f %5.1f %7.1f \n","20220103", 9.2, 1.5, 4.6);
+
+    printf("------------------------------------- \n \n");
+
+    // printf("==============================\n");
+    // printf("     N O T A   L E G A L \n");
+    // printf("============================== \n");
+
+   
+   
+   
     return 0;
 }
