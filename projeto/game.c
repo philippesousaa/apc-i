@@ -72,52 +72,63 @@ int main()
     int rodada = 1;
     while (1)
     {
+        printf("\033[48;5;28m");
 
         system("clear");
 
         printf("RODADA %d!\n", rodada);
 
-        int valores_cartas[MAX_JOGADORES];
         int maior_valor = -1;
         int vencedor = -1;
         int empate = 0;
+        int valores_cartas[MAX_JOGADORES];
+        int naipes_cartas[MAX_JOGADORES];
         const char *cores_cartas[MAX_JOGADORES];
 
         // Sorteia cartas e define cores para cada jogador
         for (int i = 0; i < num_jogadores; i++)
         {
             valores_cartas[i] = rand() % 13;
-            cores_cartas[i] = cores[rand() % 4];
+            naipes_cartas[i] = rand() % 4;
+            cores_cartas[i] = cores[naipes_cartas[i]]; // A cor depende do naipe
         }
 
         // Exibir as cartas lado a lado
         printf("\n");
+
+        // Linha superior
         for (int i = 0; i < num_jogadores; i++)
-            printf("%s┌─────────┐   ", cores_cartas[i]);
+            printf("%s┌─────────┐\033[0m   ", cores_cartas[i]);
         printf("\n");
 
+        // Linha valor superior
         for (int i = 0; i < num_jogadores; i++)
-            printf("│ %-2s      │   ", valores[valores_cartas[i]]);
+            printf("%s│ %-2s      │\033[0m   ", cores_cartas[i], valores[valores_cartas[i]]);
         printf("\n");
 
+        // Linha vazia
         for (int i = 0; i < num_jogadores; i++)
-            printf("│         │   ");
+            printf("%s│         │\033[0m   ", cores_cartas[i]);
         printf("\n");
 
+        // Linha do naipe
         for (int i = 0; i < num_jogadores; i++)
-            printf("│    %s    │   ", naipes[rand() % 4]);
+            printf("%s│    %s    │\033[0m   ", cores_cartas[i], naipes[naipes_cartas[i]]);
         printf("\n");
 
+        // Linha vazia
         for (int i = 0; i < num_jogadores; i++)
-            printf("│         │   ");
+            printf("%s│         │\033[0m   ", cores_cartas[i]);
         printf("\n");
 
+        // Linha valor inferior
         for (int i = 0; i < num_jogadores; i++)
-            printf("│      %-2s │   ", valores[valores_cartas[i]]);
+            printf("%s│      %-2s │\033[0m   ", cores_cartas[i], valores[valores_cartas[i]]);
         printf("\n");
 
+        // Linha inferior
         for (int i = 0; i < num_jogadores; i++)
-            printf("└─────────┘   \033[0m"); // Resetando a cor aqui
+            printf("%s└─────────┘\033[0m   ", cores_cartas[i]);
         printf("\n");
 
         // Verifica quem tem a maior carta
