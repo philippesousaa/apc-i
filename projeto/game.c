@@ -72,10 +72,8 @@ int main()
     int rodada = 1;
     while (1)
     {
-        printf("\033[48;5;28m");
-
         system("clear");
-
+     
         printf("RODADA %d!\n", rodada);
 
         int maior_valor = -1;
@@ -137,8 +135,8 @@ int main()
             if (valores_cartas[i] > maior_valor)
             {
                 maior_valor = valores_cartas[i];
-                vencedor = i;
-                empate = 0;
+                vencedor    = i;
+                empate      = 0;
             }
             else if (valores_cartas[i] == maior_valor)
             {
